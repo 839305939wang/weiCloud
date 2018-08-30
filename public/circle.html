@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas progress</title>
+</head>
+<body>
+        <form id="loginForm" action="/uploadForm" method="POST" enctype="multipart/form-data">
+            <input type="text" name="usename" value="" placeholder="请输输入用户名"/>
+            <input type="password" name="passw" value="" placeholder="请输输入密码"/>
+            <input type="submit" value="提交" id="submitBtn"/>
+         </form>
+	<canvas id="process" width="40" height="40"></canvas>
+	<script>
+        function parcessBar(dom,size){
+             this.dom = dom;
+             this.instacece = null;
+             this.ctx = null;
+             this.size = size||50;
+        }
+        parcessBar.prototype.init = function(){
+            var instacece = document.getElementById(this.dom);
+            this.ctx = instacece.getContext('2d');
+            // 画灰色的圆
+            this.ctx.beginPath();
+            this.ctx.arc(this.size,this.size,this.size-10, 0, Math.PI*2);
+            this.ctx.closePath();
+            this.ctx.fillStyle = '#F6F6F6';
+            this.ctx.fill();
+            this.process = 0;
+        };
+        parcessBar.prototype.animate = function(){
+                var that = this;
+                requestAnimationFrame(function (){
+                    that.process = that.process + 1;
+                    console.log("that.process:",that.process)
+                    if (that.process <= 100) {
+                        that.drawCricle(that.process);
+                    }
+                });
+        };
+        parcessBar.prototype.drawCricle = function(percent,success){
+               // 画进度环
+               success = success||true
+               this.ctx.beginPath();
+               this.ctx.moveTo(this.size,this.size);  
+               this.ctx.arc(this.size,this.size,this.size-5, Math.PI * 1.5, Math.PI * (1.5 + 2 * percent / 100 ));
+               this.ctx.closePath();
+               if(success){
+                  this.ctx.fillStyle = '#0ec53e';
+               }else{
+                  this.ctx.fillStyle = '#f50909';
+               }
+               
+               this.ctx.fill();
+
+               // 画内填充圆
+               this.ctx.beginPath();
+               this.ctx.arc(this.size,this.size,this.size-8, 0, Math.PI * 2);
+               this.ctx.closePath();
+               this.ctx.fillStyle = '#fff';
+               this.ctx.fill();
+
+               // 填充文字
+               this.ctx.font = "bold 6pt Microsoft YaHei"; 
+               this.ctx.fillStyle = '#333';
+               this.ctx.textAlign = 'center';  
+               this.ctx.textBaseline = 'middle';  
+               this.ctx.moveTo(this.size,this.size);  
+               this.ctx.fillText(percent + '%', this.size,this.size);
+        }
+        var circle = new parcessBar("process",20);
+        circle.init();
+        circle.drawCricle(90)
+	</script>
+</body>
+</html

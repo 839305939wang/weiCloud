@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="pageHeader">
+            <div id="uploadBtn" class="btn uploadBtn">
+                <i></i>
+                <span>上传</span>
+            </div>
+            <div id="newDir" class="btn newDirBtn">
+                <i></i>
+                <span>新建</span>
+            </div>
+            <div class="operateBar">
+                <div class="operateBarItem download" title="下载" id="downloadBtn">
+                    <i class="icon"></i>
+                    <span></span>
+                </div>
+                <div class="operateBarItem delete" id="deleteBtn" title="删除">
+                        <i class="icon"></i>
+                        <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="pageContent">
+              <div class="breadcrumb">
+                  <div class="breadcrumb_item path" id="breadcrumb_item_path">
+                  </div>    
+                  <div class="breadcrumb_item show">
+                        <div class="breadcrumb_item_show list">
+                                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>列表</title><g fill="none" fill-rule="evenodd"><path d="M2 2h20v20H2z"/><path d="M4 5h16v2H4V5zm0 4h16v2H4V9zm0 4h16v2H4v-2zm0 4h16v2H4v-2z" fill="#2980FF"/></g></svg>
+                        </div>
+                        <div class="breadcrumb_item_show thumb">
+                                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>图标</title><g fill="none" fill-rule="evenodd"><path d="M2 2h20v20H2z"/><path d="M5 5v5h5V5H5zm0 9v5h5v-5H5zm9-9v5h5V5h-5zm0 9v5h5v-5h-5z" stroke="#687176" stroke-width="2"/></g></svg>
+                        </div>
+                  </div>
+              </div>
+              <div class="disk_content">
+                  <div class="disk_content_header">
+                      <div class="disk_content_header_item name">名称</div>
+                      <div class="disk_content_header_item lastModify">最近修改时间</div>
+                      <div class="disk_content_header_item size">大小</div>
+                  </div>
+                  <div class="disk_content_body" id="disk_content_body">
+                        
+                  </div>
+                  <div class="disk_content_footer">
+                        
+                  </div>
+              </div> 
+        </div>
+        <!--<div class="download" style="display:none">
+            <div class="header">
+                <p>文件下载</p>
+            </div>
+            <div class="upload">
+                <div class="content" id="content">
+    
+                </div>
+                <div class="operate">
+                   
+                </div>
+            </div>
+        </div>-->
+
+        <div class="upAndDownList" id="upAndDownList">
+              <div class="upAndDownList_header">
+                  <div class="upAndDownList_header_item upList tabKey" tab="upList">
+                      上传列表
+                  </div>
+                  <div class="upAndDownList_header_item downList tabKey" tab="downList">
+                      下载列表
+                   </div>
+                   <div class="operateBar">
+                       <div class="operateBar_item slide" id="TabSlide"></div>
+                       <div class="operateBar_item close" id="TabClose"></div>
+                   </div>
+              </div>
+              <div class="upAndDownList_content">
+                  <div class="upAndDownList_content_item up_content tabContent" key="upList" id="up_content">
+                        <ul class='filelist' id="filelist">
+                        
+                         </ul>
+                  </div>
+                  <div class="upAndDownList_content_item down_content tabContent" key="downList" id="down_content">
+                        <ul class='filelist' id="filelist">
+                        
+                        </ul>
+                  </div>
+              </div>
+        </div>
+    </div>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/canvas.js"></script>
+    <script src="./js/file.js"></script>
+    <script src="./js/upAndDown.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/dialog.js"></script>
+    <script>
+    
+    </script>
+</body>
+</html>
